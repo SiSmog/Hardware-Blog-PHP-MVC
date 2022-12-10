@@ -45,12 +45,12 @@
   }
   
   .icon {
-    height: 1em;
     display: inline-block;
     fill: #606468;
     fill: var(--iconFill);
-    width: 1em;
-    vertical-align: middle;
+    width: 2em;
+    height: 1.5em;
+    text-align: middle;
   }
   
   /* layout/base.css */
@@ -243,4 +243,3 @@
   .text--center {
     text-align: center;
   }
-  
