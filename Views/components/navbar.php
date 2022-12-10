@@ -14,7 +14,7 @@
                     <a href="/Explore" class="nav-item nav-link">Explore</a>
                     <a href="/Search" class="nav-item nav-link">Search</a>
                     <a href="/Contact" class="nav-item nav-link">Contact</a>
-                    <a href="" class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block">SIGN IN <i class="bi bi-box-arrow-in-right"></i></a>
+                    <a href="/Signin" class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block">SIGN IN <i class="bi bi-box-arrow-in-right"></i></a>
                 </div>
             </div>
         </nav>

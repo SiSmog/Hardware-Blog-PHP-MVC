@@ -33,7 +33,7 @@
       
           </form>
       
-          <p class="text--center">Not a member? <a href="#">Sign up now</a> <svg class="icon">
+          <p class="text--center">Already a member? <a href="/Signin">Sign up now</a> <svg class="icon">
               <use xlink:href="#icon-arrow-right"></use>
             </svg></p>
       
