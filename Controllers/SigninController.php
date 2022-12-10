@@ -1,6 +1,6 @@
 <?php
-class LoginController{
+class SigninController{
     public static function Fetch(){
-        include("Views/login.php");
+        include("Views/signin.php");
     }
 }?>

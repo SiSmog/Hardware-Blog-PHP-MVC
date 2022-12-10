@@ -5,22 +5,22 @@
     </div>
     <div class="row g-5">
         <?php
-        while ($row = mysqli_fetch_array($_SESSION["Categories"])) {
+        while ($row = mysqli_fetch_array($Categories)) {
         ?>
             <div class="col-lg-4 col-md-6 pb-4">
                 <div class="service-item bg-white d-flex flex-column align-items-center text-center">
-                    <img class="img-fluid catimg" src=<?php echo "/img/category/".$row["image"]; ?> alt="">
+                    <img class="img-fluid catimg" src=<?php echo "/img/category/" . $row["image"]; ?> alt="">
                     <div class="service-icon bg-white">
-                        <img class="icon" src=<?php echo "/img/icon/".$row["icon"]; ?> alt="">
+                        <img class="icon" src=<?php echo "/img/icon/" . $row["icon"]; ?> alt="">
                     </div>
                     <div class="px-4 pb-4">
                         <h4 class="text-uppercase mb-3"><?php echo $row["nom"]; ?></h4>
-                        <p><?php echo $row["description"]?></p>
-                        <a class="btn text-primary" href=<?php echo "Explore/FetchByCategory/".$row["id"]; ?>>Read More <i class="bi bi-arrow-right"></i></a>
+                        <p><?php echo $row["description"] ?></p>
+                        <a class="btn text-primary" href=<?php echo "Explore/FetchByCategory/" . $row["id"]; ?>>Read More <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-        <?php }?>
+        <?php } ?>
     </div>
 </div>
 <!-- Services End -->

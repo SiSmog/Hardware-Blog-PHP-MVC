@@ -5,7 +5,7 @@
 
 
         <?php
-        while ($row = mysqli_fetch_array($_SESSION["Articles"])) {
+        while ($row = mysqli_fetch_array($Articles)) {
         ?>
         <div class="col-lg-4 col-md-6">
                 <div class="bg-light">

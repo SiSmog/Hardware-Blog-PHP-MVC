@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>WEBUILD -  Construction Company Website Template Free</title>
+    <title>WEBUILD - Construction Company Website Template Free</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -13,7 +13,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -32,10 +32,10 @@
 </head>
 
 <body>
-    
 
 
-<?php include "components/navbar.php"?>
+
+    <?php include "components/navbar.php" ?>
 
 
 
@@ -50,42 +50,42 @@
     </div>
     <!-- Page Header Start -->
 
-<!-- Blog Start -->
-<div class="container-fluid py-6 px-5">
+    <!-- Blog Start -->
+    <div class="container-fluid py-6 px-5">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-        <h1 class="display-5 text-uppercase mb-4"><span>Latest Articles About </span><span class="text-primary"><?php echo mysqli_fetch_array($_SESSION["Category"])["nom"]?></span></h1>
-            </div>
+            <h1 class="display-5 text-uppercase mb-4"><span>Latest Articles About </span><span class="text-primary"><?php echo mysqli_fetch_array($Category)["nom"] ?></span></h1>
+        </div>
         <div class="row g-5">
 
 
 
 
-        <?php
-        while ($row = mysqli_fetch_array($_SESSION["ArticlesByCategory"])) {
-        ?>
-        <div class="col-lg-4 col-md-6">
-                <div class="bg-light">
-                    <img class="img-fluid" src=<?php echo "/img/".$row["image"]; ?> alt="">
-                    <div class="p-4">
-                        <div class="d-flex justify-content-between mb-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src=<?php echo "/img/".$row["userimage"]; ?> width="35" height="35" alt="">
-                                <span><?php echo $row["pseudo_utilisateur"]; ?></span>
+            <?php
+            while ($row = mysqli_fetch_array($ArticlesByCategory)) {
+            ?>
+                <div class="col-lg-4 col-md-6">
+                    <div class="bg-light">
+                        <img class="img-fluid" src=<?php echo "/img/" . $row["image"]; ?> alt="">
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle me-2" src=<?php echo "/img/" . $row["userimage"]; ?> width="35" height="35" alt="">
+                                    <span><?php echo $row["pseudo_utilisateur"]; ?></span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <span class="ms-3"><i class="far fa-calendar-alt text-primary me-2"></i><?php echo $row["date_de_modification"]; ?></span>
+                                </div>
                             </div>
-                            <div class="d-flex align-items-center">
-                                <span class="ms-3"><i class="far fa-calendar-alt text-primary me-2"></i><?php echo $row["date_de_modification"]; ?></span>
-                            </div>
+                            <h4 class="text-uppercase mb-3"><?php echo $row["titre"]; ?></h4>
+                            <a class="text-uppercase fw-bold" href=<?php echo "/Article/Fetch/" . $row["id"] ?>>Read More <i class="bi bi-arrow-right"></i></a>
                         </div>
-                        <h4 class="text-uppercase mb-3"><?php echo $row["titre"]; ?></h4>
-                        <a class="text-uppercase fw-bold" href=<?php echo"/Article/Fetch/".$row["id"]?>>Read More <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
-            </div>
-            <?php }?>
+            <?php } ?>
         </div>
     </div>
-    <!-- Blog End -->      
-    
+    <!-- Blog End -->
+
 
     <!-- Footer Start -->
     <div class="footer container-fluid position-relative bg-dark bg-light-radial text-white-50 py-6 px-5">
@@ -94,7 +94,7 @@
                 <a href="index.html" class="navbar-brand">
                     <h1 class="m-0 display-4 text-uppercase text-white"><i class="bi bi-building text-primary me-2"></i>WEBUILD</h1>
                 </a>
-                <p>Aliquyam sed elitr elitr erat sed diam ipsum eirmod eos lorem nonumy. Tempor sea ipsum diam  sed clita dolore eos dolores magna erat dolore sed stet justo et dolor.</p>
+                <p>Aliquyam sed elitr elitr erat sed diam ipsum eirmod eos lorem nonumy. Tempor sea ipsum diam sed clita dolore eos dolores magna erat dolore sed stet justo et dolor.</p>
                 <p><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</p>
                 <p><i class="fa fa-phone-alt me-2"></i>+012 345 67890</p>
                 <p><i class="fa fa-envelope me-2"></i>info@example.com</p>

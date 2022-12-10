@@ -1,5 +1,5 @@
 <?php
-$article=mysqli_fetch_array($_SESSION["Article"]);
+$article=mysqli_fetch_array($Article);
 ?>
 
 
@@ -70,9 +70,9 @@ $article=mysqli_fetch_array($_SESSION["Article"]);
 
                 <!-- Comment List Start -->
                 <div class="mb-5">
-                    <h3 class="text-uppercase mb-4"><?php echo mysqli_num_rows($_SESSION["CommentsByArticle"]);?> Comments</h3>
+                    <h3 class="text-uppercase mb-4"><?php echo mysqli_num_rows($CommentsByArticle);?> Comments</h3>
                     <?php
-                    while($row = mysqli_fetch_array($_SESSION["CommentsByArticle"])){?> 
+                    while($row = mysqli_fetch_array($CommentsByArticle)){?> 
                             <div class="d-flex mb-4">
                                 <img src=<?php echo "/img/". $row["image"]?> class="img-fluid" style="width: 45px; height: 45px;">
                                 <div class="ps-3">

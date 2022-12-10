@@ -7,8 +7,8 @@ class CommentModel
         $sql = "SELECT commentaire.*,pseudo_utilisateur,image 
         FROM commentaire,user
         where user.id =commentaire.id_user and id_article=?";
-        $resultat = execute($sql,[$id]);
-        $_SESSION["CommentsByArticle"] = $resultat;
+        $resultat = execute($sql, [$id]);
+        return $resultat;
     }
     public static function Insert($params)
     {

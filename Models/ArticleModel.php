@@ -7,14 +7,14 @@ class ArticleModel
         $sql = "select article.id,titre,date_de_modification,article.image,user.image as userimage ,pseudo_utilisateur from article,user 
         where article.id=user.id";
         $resultat = execute($sql);
-        $_SESSION["Articles"] = $resultat;
+        return $resultat;
     }
     public static function FetchById($id)
     {
         $sql = "SELECT * FROM article where id=?";
         $params = array($id);
         $resultat = execute($sql, $params);
-        $_SESSION["Article"] = $resultat;
+        return $resultat;
     }
     public static function FetchByCategory($id)
     {
@@ -22,7 +22,7 @@ class ArticleModel
         where article.id=user.id and code_categorie=?";
         $params = array($id);
         $resultat = execute($sql, $params);
-        $_SESSION["ArticlesByCategory"] = $resultat;
+        return $resultat;
     }
 }
 ?>
