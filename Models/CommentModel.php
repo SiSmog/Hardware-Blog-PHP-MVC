@@ -12,8 +12,8 @@ class CommentModel
     }
     public static function Add($params)
     {
-        $sql = "INSERT INTO commentaire(id_article,id_user,contenu,validation) 
-        values(?,?,?,?)";
+        $sql = "INSERT INTO commentaire(id_article,id_user,contenu) 
+        values(?,?,?)";
         execute($sql, $params);
     }
 }

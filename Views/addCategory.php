@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php $row = mysqli_fetch_array($Categories); ?>
 
 <head>
     <meta charset="utf-8">
@@ -48,12 +47,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="/Dashboard" class="btn btn-light btn-block">
+                    <a href="/Category/Fetch" class="btn btn-light btn-block">
                         <i class="fas fa-arrow-left"></i> Back To Dashboard
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <input type="submit" form="addArticle" class="btn btn-primary btn-block" Value="Add Article">
+                    <input type="submit" form="addCategory" class="btn btn-primary btn-block" Value="Add Category">
                 </div>
             </div>
         </div>
@@ -67,28 +66,14 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Edit Post</h4>
+                            <h4>Add Category</h4>
                         </div>
                         <div class="card-body">
 
-                            <form action="/Article/AddArticleDetails" id="addArticle" method="post">
+                            <form action="/Category/AddCategoryDetails" id="addCategory" method="post">
                                 <div class="form-group">
-                                    <label for="title">Title</label>
+                                    <label for="title">Nom</label>
                                     <input type="text" name="title" class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="category">Category</label>
-                                    <select name="categorie" class="form-control">
-                                        <?php
-                                        foreach ($Categories as $Categorie) {
-                                        ?>
-                                            <option value=<?= $Categorie["id"] ?>><?= $Categorie["nom"] ?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-
                                 </div>
 
                                 <div class="form-group">
@@ -101,7 +86,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="body">Body</label>
+                                    <label for="body">Description</label>
                                     <textarea name="contenu" class="form-control"></textarea>
                                 </div>
 
@@ -114,19 +99,6 @@
     </section>
 
     <!-- FOOTER -->
-
-    <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <p class="lead text-center">
-                        Copyright &copy; <span id="year"></span>
-                        Blogen
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 
 

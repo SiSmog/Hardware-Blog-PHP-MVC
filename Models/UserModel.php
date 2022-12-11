@@ -4,7 +4,8 @@ class UserModel
 {
     public static function Fetch()
     {
-        $resultat = "";
+        $sql = "SELECT * FROM user";
+        $resultat = execute($sql);
         return $resultat;
     }
     public static function Check($params)

@@ -62,23 +62,25 @@
             </div>
             <div class="col-lg-6">
                 <div class="contact-form bg-light p-5">
+                    <form action="/Contact/Add" method="POST">
                     <div class="row g-3">
                         <div class="col-12 col-sm-6">
-                            <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
+                            <input type="text" class="form-control border-0" placeholder="Your Name" name="name" style="height: 55px;">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+                            <input type="email" class="form-control border-0" placeholder="Your Email"name="email" style="height: 55px;">
                         </div>
                         <div class="col-12">
-                            <input type="text" class="form-control border-0" placeholder="Subject" style="height: 55px;">
+                            <input type="text" class="form-control border-0" placeholder="Subject" name="subject" style="height: 55px;">
                         </div>
                         <div class="col-12">
-                            <textarea class="form-control border-0" rows="4" placeholder="Message"></textarea>
+                            <textarea class="form-control border-0" rows="4" placeholder="Message"name="message"></textarea>
                         </div>
                         <div class="col-12">
                             <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

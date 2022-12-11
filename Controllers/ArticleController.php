@@ -25,18 +25,23 @@ class ArticleController
         $title = $_POST["title"];
         $contenu = $_POST["contenu"];
         $image = $_POST["image"];
-        $article->Update($id, $title, $contenu, $image);
+        $params = [$title, $contenu, $image, $id];
+        $article->Update($params);
         $Article = $article->FetchById($id);
         include("Views/details.php");
     }
     public static function AddArticleDetails()
     {
         require_once("Models/ArticleModel.php");
+        $code_blogueur = $_SESSION["userid"];
         $article = new ArticleModel();
-        $title = $_POST["title"];
+        $titre = $_POST["title"];
         $contenu = $_POST["contenu"];
         $image = $_POST["image"];
-        $article->Add($title, $contenu, $image);
+        $code_categorie = $_POST["categorie"];
+        $params = [$titre, $contenu, $image, $code_categorie, $code_blogueur];
+        $article->Add($params);
+        header('Location:/Dashboard');
     }
     public static function Add(){
     {

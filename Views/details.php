@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php $row = mysqli_fetch_array($Article);
+?>
+
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- Favicon -->
     <link href="/img/favicon.ico" rel="icon">
 
@@ -28,78 +39,11 @@
 
     <!-- Template Stylesheet -->
     <link href="/css/main.css" rel="stylesheet">
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Bootstap Theme</title>
 </head>
 
 <body>
     <?php require "components/navbar.php" ?>
-    <div class="container">
-        <a href="index.html" class="navbar-brand">Blogen</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav">
-                <li class="nav-item px-2">
-                    <a class="nav-link" href="index.html">Dashboard</a>
-                </li>
-                <li class="nav-item px-2">
-                    <a class="nav-link" href="posts.html">Posts</a>
-                </li>
-                <li class="nav-item px-2">
-                    <a class="nav-link" href="categories.html">Categories</a>
-                </li>
-                <li class="nav-item px-2">
-                    <a class="nav-link" href="users.html">Users</a>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown mr-3">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                        <i class="fas fa-user"></i> Welcome Sam
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="profile.html">
-                            <i class="fas fa-user-circle"></i> Profile
-                        </a>
-                        <a class="dropdown-item" href="settings.html">
-                            <i class="fas fa-cog"></i> Settings
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a href="login.html" class="nav-link">
-                        <i class="fas fa-user-times"></i> Logout
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-    </div>
-    </nav>
-
-    <!-- Header -->
-
-    <header id="main-header" class="py-2 bg-primary text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1>Post One</h1>
-                </div>
-            </div>
-        </div>
-    </header>
-    <?php $row = mysqli_fetch_array($Article);
-    ?>
     <!-- Actions -->
     <section id="actions" class="py-4 mb-4 bg-light">
         <div class="container">
@@ -169,20 +113,6 @@
     </section>
 
     <!-- FOOTER -->
-    <?php require_once("sidebar.php"); ?>
-
-    <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <p class="lead text-center">
-                        Copyright &copy; <span id="year"></span>
-                        Blogen
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 
 
@@ -203,6 +133,20 @@
         $('#year').text(new Date().getFullYear());
         CKEDITOR.replace('contenu');
     </script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/waypoints/waypoints.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/js/main.js"></script>
 </body>
 
 </html>

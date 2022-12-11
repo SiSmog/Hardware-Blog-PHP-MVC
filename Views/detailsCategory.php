@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php $row = mysqli_fetch_array($Categories); ?>
+
+<?php $row = mysqli_fetch_array($Category);
+?>
 
 <head>
     <meta charset="utf-8">
@@ -40,7 +42,6 @@
 </head>
 
 <body>
-
     <?php require "components/navbar.php" ?>
 
     <!-- Actions -->
@@ -48,12 +49,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="/Dashboard" class="btn btn-light btn-block">
+                    <a href="/Category/Fetch" class="btn btn-light btn-block">
                         <i class="fas fa-arrow-left"></i> Back To Dashboard
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <input type="submit" form="addArticle" class="btn btn-primary btn-block" Value="Add Article">
+                    <input type="submit" form="form2" class="btn btn-success btn-block" Value="Save Changes">
+                </div>
+                <div class="col-md-3">
+                    <a href="/Category/DeleteCategory/<?= $row["id"]; ?>" class="btn btn-danger btn-block">
+                        <i class="fas fa-trash"></i> Delete Post
+                    </a>
                 </div>
             </div>
         </div>
@@ -67,28 +73,14 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Edit Post</h4>
+                            <h4>Edit Category</h4>
                         </div>
                         <div class="card-body">
 
-                            <form action="/Article/AddArticleDetails" id="addArticle" method="post">
+                            <form action="/Category/UpdateCategoryDetails/<?php echo $row["id"]; ?>" id="form2" method="post">
                                 <div class="form-group">
                                     <label for="title">Title</label>
-                                    <input type="text" name="title" class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="category">Category</label>
-                                    <select name="categorie" class="form-control">
-                                        <?php
-                                        foreach ($Categories as $Categorie) {
-                                        ?>
-                                            <option value=<?= $Categorie["id"] ?>><?= $Categorie["nom"] ?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-
+                                    <input type="text" name="title" class="form-control" value="<?php echo $row["nom"]; ?>">
                                 </div>
 
                                 <div class="form-group">
@@ -102,7 +94,7 @@
 
                                 <div class="form-group">
                                     <label for="body">Body</label>
-                                    <textarea name="contenu" class="form-control"></textarea>
+                                    <textarea name="contenu" class="form-control"><?php echo $row["description"]; ?></textarea>
                                 </div>
 
                             </form>
@@ -115,18 +107,7 @@
 
     <!-- FOOTER -->
 
-    <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <p class="lead text-center">
-                        Copyright &copy; <span id="year"></span>
-                        Blogen
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
+
 
 
 

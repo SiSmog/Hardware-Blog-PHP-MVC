@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<?php require "components/navbar.php" ?>
+  <?php require "components/navbar.php" ?>
 
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -57,12 +57,12 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a href="#" class="btn btn-dark btn-block" data-toggle="modal" data-target="#addCategoryModal">
+          <a href="/Category/Fetch" class="btn btn-dark btn-block">
             Category
           </a>
         </div>
         <div class="col-md-3">
-          <a href="#" class="btn btn-dark btn-block" data-toggle="modal" data-target="#addUserModal">
+          <a href="/User/Fetch" class="btn btn-dark btn-block" >
             User
           </a>
         </div>
@@ -114,9 +114,9 @@
                     <td><?php echo "/img/" . $row["image"]; ?></td>
                     <td><?php echo $row["code_categorie"]; ?></td>
                     <td><?php echo $row["pseudo_utilisateur"]; ?></td>
-                    <td><a href="dashboard/view/<?php echo $row["id"]; ?>" class="btn btn-dark">View</a></td>
-                    <td><a href="Article/details/<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a></td>
-                    <td><a href="dashboard/delete/<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a></td>
+                    <td><a href="/dashboard/view/<?php echo $row["id"]; ?>" class="btn btn-dark">View</a></td>
+                    <td><a href="/Article/details/<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a></td>
+                    <td><a href="/Article/DeleteArticle/<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a></td>
 
                     <td>
                     </td>
@@ -214,24 +214,33 @@
   </div>
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/easing/easing.min.js"></script>
-    <script src="/lib/waypoints/waypoints.min.js"></script>
-    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="/lib/tempusdominus/js/moment.min.js"></script>
-    <script src="/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="/lib/lightbox/js/lightbox.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="/js/main.js"></script>
 
 
 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+  <script>
+    // Get the current year for the copyright
+    $('#year').text(new Date().getFullYear());
+    CKEDITOR.replace('editor1');
+  </script>
 
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/lib/easing/easing.min.js"></script>
+  <script src="/lib/waypoints/waypoints.min.js"></script>
+  <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="/lib/tempusdominus/js/moment.min.js"></script>
+  <script src="/lib/tempusdominus/js/moment-timezone.min.js"></script>
+  <script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="/lib/lightbox/js/lightbox.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

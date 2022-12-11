@@ -11,6 +11,23 @@ class ArticleModel
         $resultat = execute($sql);
         return $resultat;
     }
+    public static function Filter($search)
+    {
+        $sql = "select article.*,user.image as userimage ,pseudo_utilisateur 
+        FROM article
+        INNER JOIN user
+        ON user.id =article.code_blogueur
+        Where titre like ?
+        UNION
+        select article.*,user.image as userimage ,pseudo_utilisateur 
+        FROM article
+        INNER JOIN user
+        ON user.id =article.code_blogueur
+        Where titre like ?;";
+        $params=[$search."%","%".$search."%"];
+        $resultat = execute($sql,$params);
+        return $resultat;
+    }
     public static function FetchById($id)
     {
         $sql = "SELECT * FROM article where id=?";
@@ -26,18 +43,16 @@ class ArticleModel
         $resultat = execute($sql, $params);
         return $resultat;
     }
-    public static function Update($id, $title, $contenu, $image)
+    public static function Update($params)
     {
-        $params = [$title, $contenu, $image, $id];
         $sql = "UPDATE article 
         SET titre= ?,contenu=?,image=?
         where id = ?";
         execute($sql, $params);
     }
-    public static function Add($title, $contenu, $image)
+    public static function Add($params)
     {
-        $params = [$title, $contenu, $image];
-        $sql = "INSERT INTO article (titre,contenu,image)
+        $sql = "INSERT INTO categorie(nom,image,description)
         VALUES(?,?,?)";
         execute($sql, $params);
     }

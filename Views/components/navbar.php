@@ -13,7 +13,7 @@
                 <div class="navbar-nav ms-auto py-0">
                     <a href="/Home" class="nav-item nav-link">Home</a>
                     <a href="/Explore" class="nav-item nav-link">Explore</a>
-                    <a href="/Search" class="nav-item nav-link">Search</a>
+                    <a href="/Search/Filter" class="nav-item nav-link">Search</a>
                     <a href="/Contact" class="nav-item nav-link">Contact</a>
                     <?php if(!isset($_SESSION["username"])){
                     ?>

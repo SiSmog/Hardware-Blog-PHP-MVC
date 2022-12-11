@@ -90,10 +90,10 @@ $article=mysqli_fetch_array($Article);
                 <!-- Comment Form Start -->
                 <div class="bg-light p-5">
                     <h3 class="text-uppercase mb-4">Leave a comment</h3>
-                    <form>
+                    <form method="POST" action=<?php echo "/Comment/Add/". $article["id"]?>>
                         <div class="row g-3">
                             <div class="col-12">
-                                <textarea class="form-control bg-white border-0" rows="5" placeholder="Comment"></textarea>
+                                <textarea class="form-control bg-white border-0" rows="5" placeholder="Comment" name="contenu"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Leave Your Comment</button>

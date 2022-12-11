@@ -15,4 +15,23 @@ class CategoryModel
         $resultat = execute($sql, $params);
         return $resultat;
     }
+    public static function Update($id, $title, $contenu, $image)
+    {
+        $params = [$title, $contenu, $image, $id];
+        $sql = "UPDATE categorie 
+        SET nom= ?,description=?,image=?
+        where id = ?";
+        execute($sql, $params);
+    }
+    public static function Add($params)
+    {
+        $sql = "INSERT INTO categorie(nom,image,description)
+        VALUES(?,?,?)";
+        execute($sql, $params);
+    }
+    public static function Delete($params)
+    {
+        $sql = "DELETE FROM categorie WHERE id=? ";
+        execute($sql, $params);
+    }
 }

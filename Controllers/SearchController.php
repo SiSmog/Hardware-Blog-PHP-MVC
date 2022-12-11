@@ -1,10 +1,15 @@
 <?php 
 
 class SearchController{
-    public static function Fetch(){
+    public static function Filter(){
         require_once("Models/ArticleModel.php");
         $article=new ArticleModel();
-        $Articles=$article->Fetch();
+        if(isset($_POST["search"])){
+            $search=$_POST["search"];
+            $Articles=$article->Filter($search);
+        }else{
+            $Articles=$article->Fetch();
+        }
         include("Views/search.php");
     }
 }
