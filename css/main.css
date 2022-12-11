@@ -288,3 +288,9 @@
     height: 280px;
     width: 100%;
 }
+.navbar{
+    padding: 0;
+}
+.primary{
+    background-color: var(--primary);
+}

@@ -41,4 +41,9 @@ class ArticleModel
         VALUES(?,?,?)";
         execute($sql, $params);
     }
+    public static function Delete($params)
+    {
+        $sql = "DELETE FROM article WHERE id=? ";
+        execute($sql, $params);
+    }
 }

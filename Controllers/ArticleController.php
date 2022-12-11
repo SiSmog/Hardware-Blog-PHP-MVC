@@ -38,5 +38,20 @@ class ArticleController
         $image = $_POST["image"];
         $article->Add($title, $contenu, $image);
     }
-
+    public static function Add(){
+    {
+        require_once("Models/CategoryModel.php");
+        $category = new CategoryModel();
+        $Categories = $category->Fetch();
+        include("Views/addArticle.php");
+    }
+    }
+    public static function DeleteArticle($id)
+    {
+        require_once("Models/ArticleModel.php");
+        $article = new ArticleModel();
+        $params = [$id];
+        $article->Delete($params);
+        header('Location:/Dashboard');
+    }
 }

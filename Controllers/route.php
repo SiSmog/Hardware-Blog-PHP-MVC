@@ -39,7 +39,7 @@ class Route
 
         $method = !empty($methodPart) ?
             $methodPart :
-            'index';
+            "Fetch";
 
         $args = !empty($argsPart) ?
             $argsPart :

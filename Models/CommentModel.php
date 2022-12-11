@@ -10,10 +10,10 @@ class CommentModel
         $resultat = execute($sql, [$id]);
         return $resultat;
     }
-    public static function Insert($params)
+    public static function Add($params)
     {
-        $sql = "INSERT INTO commentaire(id_article,id_user,contenu,validation,date_ajout) 
-        values(?,?,?,?,?)";
+        $sql = "INSERT INTO commentaire(id_article,id_user,contenu,validation) 
+        values(?,?,?,?)";
         execute($sql, $params);
     }
 }

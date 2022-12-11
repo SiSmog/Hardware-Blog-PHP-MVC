@@ -22,7 +22,7 @@
                     }else{
                     ?>
                     <div class="nav-item dropdown">
-                    <a href="/User/Signin" class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block dropdown-toggle"data-bs-toggle="dropdown"><?php echo $_SESSION["username"]?> <img class="avatar" src=<?php echo "/img/user/".$_SESSION["userimage"]?>></img></a>
+                    <a href="/User/Signin" class="nav-item nav-link primary text-white px-5 ms-3 d-none d-lg-block dropdown-toggle"data-bs-toggle="dropdown"><?php echo $_SESSION["username"]?> <img class="avatar" src=<?php echo "/img/user/".$_SESSION["userimage"]?>></img></a>
                         <div class="dropdown-menu m-5 mt-0">
                         <a href="/Dashboard" class="dropdown-item f-30">Dashboard</a>
                         <a href="/Dashboard" class="dropdown-item">Edit Account</a>
