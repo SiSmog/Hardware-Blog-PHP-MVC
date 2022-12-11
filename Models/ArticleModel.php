@@ -4,8 +4,10 @@ class ArticleModel
 {
     public static function Fetch()
     {
-        $sql = "select article.*,user.image as userimage ,pseudo_utilisateur from article,user 
-        where article.id=user.id";
+        $sql = "select article.*,user.image as userimage ,pseudo_utilisateur 
+        FROM article
+        INNER JOIN user
+        ON user.id =article.code_blogueur";
         $resultat = execute($sql);
         return $resultat;
     }

@@ -9,7 +9,7 @@
         ?>
             <div class="col-lg-4 col-md-6 pb-4">
                 <div class="service-item bg-white d-flex flex-column align-items-center text-center">
-                    <img class="img-fluid catimg" src=<?php echo "/img/category/" . $row["image"]; ?> alt="">
+                    <img class="img-fluid cardimg" src=<?php echo "/img/category/" . $row["image"]; ?> alt="">
                     <div class="service-icon bg-white">
                         <img class="icon" src=<?php echo "/img/icon/" . $row["icon"]; ?> alt="">
                     </div>

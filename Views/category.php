@@ -65,7 +65,7 @@
             ?>
                 <div class="col-lg-4 col-md-6">
                     <div class="bg-light">
-                        <img class="img-fluid" src=<?php echo "/img/" . $row["image"]; ?> alt="">
+                        <img class="img-fluid" src=<?php echo "/img/article/" . $row["image"]; ?> alt="">
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-4">
                                 <div class="d-flex align-items-center">

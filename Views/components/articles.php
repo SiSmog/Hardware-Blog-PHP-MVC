@@ -9,11 +9,11 @@
         ?>
         <div class="col-lg-4 col-md-6">
                 <div class="bg-light">
-                    <img class="img-fluid" src=<?php echo "/img/".$row["image"]; ?> alt="">
+                    <img class="img-fluid cardimg" src=<?php echo "/img/article/".$row["image"]; ?> alt="">
                     <div class="p-4">
                         <div class="d-flex justify-content-between mb-4">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src=<?php echo "/img/".$row["userimage"]; ?> width="35" height="35" alt="">
+                                <img class="rounded-circle me-2" src=<?php echo "/img/user/".$row["userimage"]; ?> width="35" height="35" alt="">
                                 <span><?php echo $row["pseudo_utilisateur"]; ?></span>
                             </div>
                             <div class="d-flex align-items-center">
