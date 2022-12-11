@@ -61,7 +61,7 @@ $article=mysqli_fetch_array($Article);
             <div class="col-lg-12">
                 <!-- Blog Detail Start -->
                 <div class="mb-5">
-                    <img class="img-fluid  rounded mb-5" src=<?php echo "/img/".$article["image"]?> alt="">
+                    <img class="img-fluid  rounded mb-5" src=<?php echo "/img/article/".$article["image"]?> alt="">
                     <h1 class="text-uppercase mb-4"><?php echo $article["titre"]?></h1>
                     <p><?php echo $article["contenu"]?></p>
 
