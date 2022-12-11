@@ -1,4 +1,5 @@
 
+    
     <!-- Navbar Start -->
     <div class="container-fluid sticky-top bg-dark bg-light-radial shadow-sm px-5 pe-lg-0">
         <nav class="navbar navbar-expand-lg bg-dark bg-light-radial navbar-dark py-3 py-lg-0">
@@ -14,7 +15,7 @@
                     <a href="/Explore" class="nav-item nav-link">Explore</a>
                     <a href="/Search" class="nav-item nav-link">Search</a>
                     <a href="/Contact" class="nav-item nav-link">Contact</a>
-                    <a href="/Signin" class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block">SIGN IN <i class="bi bi-box-arrow-in-right"></i></a>
+                    <a href="/User/Signin" class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block">SIGN IN <i class="bi bi-box-arrow-in-right"></i></a>
                 </div>
             </div>
         </nav>
