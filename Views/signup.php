@@ -27,7 +27,7 @@
 
     <div class="grid">
 
-      <form action="/Home" method="POST" class="form login">
+      <form action="/User/Register" method="POST" class="form login">
 
         <div class="form__field">
           <label for="login__email">

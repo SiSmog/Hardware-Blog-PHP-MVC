@@ -2,7 +2,8 @@
 class ArticleController
 {
     public static function Fetch($id)
-    {   require_once("Models/ArticleModel.php");
+    {
+        require_once("Models/ArticleModel.php");
         require_once("Models/CommentModel.php");
         $article = new ArticleModel();
         $Article = $article->FetchById($id);
@@ -10,13 +11,32 @@ class ArticleController
         $CommentsByArticle = $comment->FetchByArticle($id);
         include("Views/article.php");
     }
-    public static function Detail($id)
-    {   require_once("Models/ArticleModel.php");
+    public static function Details($id)
+    {
+        require_once("Models/ArticleModel.php");
         $article = new ArticleModel();
         $Article = $article->FetchById($id);
-        include("Views/detail.php");
-
+        include("Views/details.php");
+    }
+    public static function UpdateArticleDetails($id)
+    {
+        require_once("Models/ArticleModel.php");
+        $article = new ArticleModel();
+        $title = $_POST["title"];
+        $contenu = $_POST["contenu"];
+        $image = $_POST["image"];
+        $article->Update($id, $title, $contenu, $image);
+        $Article = $article->FetchById($id);
+        include("Views/details.php");
+    }
+    public static function AddArticleDetails()
+    {
+        require_once("Models/ArticleModel.php");
+        $article = new ArticleModel();
+        $title = $_POST["title"];
+        $contenu = $_POST["contenu"];
+        $image = $_POST["image"];
+        $article->Add($title, $contenu, $image);
     }
 
 }
-
