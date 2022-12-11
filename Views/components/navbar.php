@@ -14,6 +14,7 @@
                     <a href="/Home" class="nav-item nav-link">Home</a>
                     <a href="/Explore" class="nav-item nav-link">Explore</a>
                     <a href="/Search" class="nav-item nav-link">Search</a>
+                    <a href="/Dashboard" class="nav-item nav-link">Dashboard</a>
                     <a href="/Contact" class="nav-item nav-link">Contact</a>
                     <a href="/User/Signin" class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block">SIGN IN <i class="bi bi-box-arrow-in-right"></i></a>
                 </div>

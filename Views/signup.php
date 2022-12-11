@@ -27,7 +27,7 @@
 
     <div class="grid">
 
-      <form action="https://httpbin.org/post" method="POST" class="form login">
+      <form action="/Home" method="POST" class="form login">
 
         <div class="form__field">
           <label for="login__email">
@@ -52,7 +52,7 @@
         </div>
 
         <div class="form__field">
-          <input type="submit" value="Sign In">
+          <input type="submit" value="Sign Up">
         </div>
 
       </form>
