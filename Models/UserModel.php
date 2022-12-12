@@ -44,4 +44,42 @@ class UserModel
         $sql = "DELETE FROM user WHERE id=? ";
         execute($sql, $params);
     }
+    public static function UpdateUserDetails($params)
+    {
+        $sql = "UPDATE user 
+        SET validation= ?
+        WHERE id= ?";
+        execute($sql, $params);
+    }
+    public static function FetchById($params)
+    {
+        $sql = "SELECT *
+        FROM user
+        where id=?";
+        $resultat = execute($sql, $params);
+        return $resultat;
+    }
+    public static function UpdateUserProfile($params)
+    {
+        $sql = "UPDATE user 
+        SET pseudo_utilisateur= ?, email=?,password=?
+        WHERE id =?";
+
+        execute($sql, $params);
+    }
+    public static function UpdateUserImage($params)
+    {
+        $sql = "UPDATE user 
+        SET iamge= ?
+        WHERE id =?";
+        execute($sql, $params);
+    }
+    public static function GetPassword($params)
+    {
+        $sql = "select password 
+        from user 
+        WHERE id =?";
+        $resultat = execute($sql, $params);
+        return $resultat;
+    }
 }

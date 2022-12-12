@@ -13,17 +13,17 @@ class ArticleModel
     }
     public static function Filter($search)
     {
-        $sql = "SELECT article.*,user.image as userimage ,pseudo_utilisateur 
+        $sql = "select article.*,user.image as userimage ,pseudo_utilisateur 
         FROM article
         INNER JOIN user
         ON user.id =article.code_blogueur
         Where titre like ?
         UNION
-        SELECT article.*,user.image as userimage ,pseudo_utilisateur 
+        select article.*,user.image as userimage ,pseudo_utilisateur 
         FROM article
         INNER JOIN user
         ON user.id =article.code_blogueur
-        WHERE titre like ?;";
+        Where titre like ?;";
         $params = [$search . "%", "%" . $search . "%"];
         $resultat = execute($sql, $params);
         return $resultat;
@@ -69,7 +69,8 @@ class ArticleModel
         INNER JOIN user 
         ON user.id =article.code_blogueur
         INNER JOIN categorie 
-        ON categorie.id =article.code_categorie ";
+        ON categorie.id =article.code_categorie 
+        order by article.id";
         $resultat = execute($sql);
         return $resultat;
     }
@@ -91,16 +92,28 @@ class ArticleModel
         $resultat = execute($sql, $params);
         return $resultat;
     }
+    public static function FetchArticleCategoryByUser($params)
+    {
+        $sql = "select article.*,pseudo_utilisateur,nom 
+        FROM article
+        INNER JOIN user 
+        ON user.id =article.code_blogueur
+        INNER JOIN categorie 
+        ON categorie.id =article.code_categorie 
+        where user.id=?
+        order by article.id";
+        $resultat = execute($sql, $params);
+        return $resultat;
+    }
     public static function FetchLast6()
     {
         $sql = "SELECT article.*,user.image as userimage ,pseudo_utilisateur 
         FROM article
         INNER JOIN user
         ON user.id =article.code_blogueur
-        ORDER BY date_de_creation desc 
+        ORDER BY date_de_creation DESC 
         LIMIT 6";
         $resultat = execute($sql);
         return $resultat;
     }
-    
 }

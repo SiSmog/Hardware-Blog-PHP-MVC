@@ -98,7 +98,7 @@
         </div>
         <div class="row gx-0 align-items-center">
             <div class="col-xl-4 col-lg-5 d-none d-lg-block">
-                <img class="img-fluid catimg w-100 h-100" src="/img/testimonial.jpg">
+                <img class="img-fluid catimg w-100 h-100" src="/img/testimonial.jpeg">
             </div>
             <div class="col-xl-8 col-lg-7 col-md-12">
                 <div class="testimonial bg-light">

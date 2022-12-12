@@ -3,10 +3,22 @@ class CategoryController
 {
     public static function Fetch()
     {
-        require_once("Models/CategoryModel.php");
-        $category = new CategoryModel();
-        $Categories = $category->Fetch();
-        include("Views/dashboardCategory.php");
+
+        if ($_SESSION["uservalidation"] == "1") {
+            require_once("Models/CategoryModel.php");
+            $category = new CategoryModel();
+            $Categories = $category->Fetch();
+            include("Views/dashboardCategory.php");
+        } else if ($_SESSION["uservalidation"] == "2") {
+            require_once("Models/ArticleModel.php");
+            $id = $_SESSION["userid"];
+            $params = [$id];
+            $article = new ArticleModel();
+            $Articles = $article->FetchArticleCategoryByUser($params);
+            include("Views/dashboardEditor.php");
+        } else {
+            header("location:/Home");
+        }
     }
     public static function AddCategoryDetails()
     {
@@ -53,3 +65,4 @@ class CategoryController
         header('Location:/Category');
     }
 }
+require_once("Models/UserModel.php");

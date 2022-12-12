@@ -16,8 +16,8 @@ class UserController
         $email = $_POST["email"];
         $username = $_POST["username"];
         $password = $_POST["password"];
-        $image = "default" . random_int(1, 12).".png";
-        $params = [$username, $email, $password,$image];
+        $image = "default" . random_int(1, 12) . ".png";
+        $params = [$username, $email, $password, $image];
         $user->Add($params);
         $params = [$username, $password];
         $valid = $user->Check($params);
@@ -35,7 +35,7 @@ class UserController
             header("location:/Home");
         } else {
             include("Views/signin.php");
-            if(isset($_SESSION["error"])){
+            if (isset($_SESSION["error"])) {
                 $_SESSION["error"] = null;
             }
         }
@@ -54,7 +54,7 @@ class UserController
             $_SESSION["userid"] = $row["id"];
             $_SESSION["uservalidation"] = $row["validation"];
             header("location:/Home");
-        }else{
+        } else {
             $_SESSION["error"] = true;
             header("location:/User/Signin");
         }
@@ -64,15 +64,28 @@ class UserController
         $_SESSION["username"] = null;
         $_SESSION["userimage"] = null;
         $_SESSION["userid"] = null;
+        $_SESSION["type"] = null;
+
         header("location:/Home");
     }
     public static function Fetch()
     {
         require_once("Models/UserModel.php");
-        $user = new UserModel();
-        $Users = $user->Fetch();
-        $Usertypes = $user->FetchTypes();
-        include("Views/dashboardUser.php");
+
+        if ($_SESSION["uservalidation"] == "1") {
+            $user = new UserModel();
+            $Users = $user->Fetch();
+            $Usertypes = $user->FetchTypes();
+            include("Views/dashboardUser.php");
+        } else if ($_SESSION["uservalidation"] == "2") {
+            $id = $_SESSION["userid"];
+            $params = [$id];
+            $article = new ArticleModel();
+            $Articles = $article->FetchArticleCategoryByUser($params);
+            include("Views/dashboardEditor.php");
+        } else {
+            header("location:/Home");
+        }
     }
     public static function UpdateUserType($id)
     {
