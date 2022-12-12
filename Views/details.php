@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php $row = mysqli_fetch_array($Article);
-?>
 
 <head>
     <meta charset="utf-8">
@@ -76,7 +74,9 @@
                             <h4>Edit Post</h4>
                         </div>
                         <div class="card-body">
+                            <?php $row2 = mysqli_fetch_all($Categories); ?>
 
+                            <?php $row = mysqli_fetch_array($Article); ?>
                             <form action="/Article/UpdateArticleDetails/<?php echo $row["id"]; ?>" id="form2" method="post">
                                 <div class="form-group">
                                     <label for="title">Title</label>
@@ -85,8 +85,13 @@
 
                                 <div class="form-group">
                                     <label for="category">Category</label>
-                                    <select class="form-control">
-                                        <option value="<?php echo $row["id"]; ?>" selected>Web Development</option>
+                                    <select class="form-control" name="category_id">
+
+                                        <option value="<?= $row["code_categorie"]; ?>" selected="selected" hidden><?= $row["nom"]; ?></option>
+
+                                        <?php foreach ($row2 as $cat) { ?>
+                                            <option value="<?= $cat[0]; ?>"><?= $cat[1] ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
 
@@ -112,7 +117,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
 
 
 

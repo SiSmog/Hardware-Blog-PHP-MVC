@@ -15,7 +15,8 @@ class ArticleController
     {
         require_once("Models/ArticleModel.php");
         $article = new ArticleModel();
-        $Article = $article->FetchById($id);
+        $Article = $article->FetchByIdWithCategory($id);
+        $Categories = $article->FetchCategory();
         include("Views/details.php");
     }
     public static function UpdateArticleDetails($id)
@@ -25,10 +26,11 @@ class ArticleController
         $title = $_POST["title"];
         $contenu = $_POST["contenu"];
         $image = $_POST["image"];
-        $params = [$title, $contenu, $image, $id];
+        $category_id = $_POST["category_id"];
+        $params = [$title, $contenu, $image, $category_id, $id];
         $article->Update($params);
         $Article = $article->FetchById($id);
-        include("Views/details.php");
+        header('Location:/Dashboard');
     }
     public static function AddArticleDetails()
     {
@@ -43,13 +45,13 @@ class ArticleController
         $article->Add($params);
         header('Location:/Dashboard');
     }
-    public static function Add(){
-    {
-        require_once("Models/CategoryModel.php");
-        $category = new CategoryModel();
-        $Categories = $category->Fetch();
-        include("Views/addArticle.php");
-    }
+    public static function Add()
+    { {
+            require_once("Models/CategoryModel.php");
+            $category = new CategoryModel();
+            $Categories = $category->Fetch();
+            include("Views/addArticle.php");
+        }
     }
     public static function DeleteArticle($id)
     {

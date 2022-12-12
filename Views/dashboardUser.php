@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <!-- Favicon -->
     <link href="/img/favicon.ico" rel="icon">
 
@@ -57,13 +57,13 @@
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="/User/Add" class="btn btn-dark btn-block">
-                        <i class="fas fa-plus"></i> User
+                    <a href="/Category/Fetch/" class="btn btn-dark btn-block">
+                        CATEGORY
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="#" class="btn btn-dark btn-block" data-toggle="modal" data-target="#addUserModal">
-                        User
+                    <a href="/User/Fetch/" class="btn btn-dark btn-block">
+                        <i class="fas fa-plus"></i> User
                     </a>
                 </div>
             </div>
@@ -76,7 +76,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-md-7">
+                <div class="col-md-9">
                     <div class="card">
                         <div class="card-header">
                             <h4>Users</h4>
@@ -88,6 +88,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>nom </th>
+                                    <th>email</th>
+
                                     <th>Image </th>
 
                                     <th></th>
@@ -100,26 +102,39 @@
                             </thead>
 
                             <tbody>
+                                <?php $row2 = mysqli_fetch_all($Usertypes); ?>
                                 <?php
                                 while ($row = mysqli_fetch_array($Users)) {
-                                    var_dump($row);
                                 ?>
                                     <tr>
                                         <td><?php echo $row["id"]; ?></td>
-                                        <td><?php echo $row["nom"]; ?></td>
+                                        <td><?php echo $row["pseudo_utilisateur"]; ?></td>
+                                        <td><?php echo $row["email"]; ?></td>
                                         <td><?php echo "/img/" . $row["image"]; ?></td>
                                         <td></td>
                                         <td></td>
-                                        <td></td>
-                                        <td><a href="/dashboard/view/<?php echo $row["id"]; ?>" class="btn btn-dark">View</a>
-                                            <a href="/User/details/<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a>
+                                        <td>
+
+                                            <form action="/User/UpdateUserType/<?= $row["id"]; ?>" method="POST">
+                                                <select class="form-control" name="validation_id">
+                                                    <option value="none" selected disabled hidden><?= $row["type"]; ?></option>
+
+                                                    <?php foreach ($row2 as $type) { ?>
+                                                        <option value="<?= $type[0] ?>"><?= $type[1] ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                <button type="submit" class="btn btn-xs btn-white btn-inline buttonClose"><i class="fa fa-check"></i></button>
+                                            </form>
+
+                                        </td>
+                                        <td>
                                             <a href="/User/DeleteUser/<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
                                         </td>
 
                                         <td>
                                         </td>
                                     </tr>
-                                <?php } ?>
+                                <?php  } ?>
                             </tbody>
 
                         </table>
@@ -129,87 +144,7 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-
-
-
-    <!-- MODALS -->
-    <!-- ADD CATEGORY MODAL -->
-    <div class="modal fade" id="addUserModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-
-                <div class="modal-header bg-success text-white">
-                    <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body">
-
-                    <form id="ADD_CATEGORY_MODAL">
-
-                        <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
-
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- ADD USER MODAL -->
-    <div class="modal fade" id="addUserModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-
-                <div class="modal-header bg-warning text-white">
-                    <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body">
-
-                    <form>
-
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="passowrd">Password</label>
-                            <input type="password" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="passowrd2">Confirm Password</label>
-                            <input type="password" class="form-control">
-                        </div>
-
-                    </form>
-
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning" data-dismiss="modal">Save changes</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
+    
 
 
 

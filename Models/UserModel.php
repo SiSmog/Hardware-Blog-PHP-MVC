@@ -4,7 +4,17 @@ class UserModel
 {
     public static function Fetch()
     {
-        $sql = "SELECT * FROM user";
+        $sql = "SELECT user.* ,usertype.type 
+        FROM user
+        INNER JOIN usertype
+        ON usertype.id = user.validation";
+        $resultat = execute($sql);
+        return $resultat;
+    }
+    public static function FetchTypes()
+    {
+        $sql = "SELECT *
+        FROM usertype";
         $resultat = execute($sql);
         return $resultat;
     }
@@ -12,10 +22,10 @@ class UserModel
     {
         $sql = "SELECT * FROM user
         Where pseudo_utilisateur=? AND password=?";
-        $resultat=execute($sql, $params);
-        if(mysqli_num_rows($resultat)>0){
+        $resultat = execute($sql, $params);
+        if (mysqli_num_rows($resultat) > 0) {
             return $resultat;
-        }else{
+        } else {
             return false;
         }
     }
@@ -26,4 +36,16 @@ class UserModel
         execute($sql, $params);
     }
 
+    public static function UpdateUserType($params)
+    {
+        $sql = "UPDATE user 
+        SET validation= ?
+        WHERE id= ?";
+        execute($sql, $params);
+    }
+    public static function DeleteUser($params)
+    {
+        $sql = "DELETE FROM user WHERE id=? ";
+        execute($sql, $params);
+    }
 }

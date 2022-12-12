@@ -5,7 +5,7 @@ class DashboardController
     public static function Fetch()
     {
         $article = new ArticleModel();
-        $Articles = $article->Fetch();
+        $Articles = $article->FetchArticleCategory();
         include("Views/dashboard.php");
     }
 }

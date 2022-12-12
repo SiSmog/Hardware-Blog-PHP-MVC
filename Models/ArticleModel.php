@@ -24,8 +24,8 @@ class ArticleModel
         INNER JOIN user
         ON user.id =article.code_blogueur
         Where titre like ?;";
-        $params=[$search."%","%".$search."%"];
-        $resultat = execute($sql,$params);
+        $params = [$search . "%", "%" . $search . "%"];
+        $resultat = execute($sql, $params);
         return $resultat;
     }
     public static function FetchById($id)
@@ -46,19 +46,48 @@ class ArticleModel
     public static function Update($params)
     {
         $sql = "UPDATE article 
-        SET titre= ?,contenu=?,image=?
+        SET titre= ?,contenu=?,image=?,code_categorie=?
         where id = ?";
         execute($sql, $params);
     }
     public static function Add($params)
     {
-        $sql = "INSERT INTO categorie(nom,image,description)
-        VALUES(?,?,?)";
+        $sql = "INSERT INTO article(titre,contenu,image,code_categorie,code_blogueur)
+        VALUES(?,?,?,?,?)";
         execute($sql, $params);
     }
     public static function Delete($params)
     {
         $sql = "DELETE FROM article WHERE id=? ";
         execute($sql, $params);
+    }
+    public static function FetchArticleCategory()
+    {
+        $sql = "select article.*,pseudo_utilisateur,nom 
+        FROM article
+        INNER JOIN user 
+        ON user.id =article.code_blogueur
+        INNER JOIN categorie 
+        ON categorie.id =article.code_categorie ";
+        $resultat = execute($sql);
+        return $resultat;
+    }
+    public static function FetchCategory()
+    {
+        $sql = "SELECT *
+        FROM categorie";
+        $resultat = execute($sql);
+        return $resultat;
+    }
+    public static function FetchByIdWithCategory($id)
+    {
+        $sql = "SELECT article.*,nom
+        FROM article 
+        INNER JOIN categorie
+        ON article.code_categorie=categorie.id
+        where article.id=?";
+        $params = array($id);
+        $resultat = execute($sql, $params);
+        return $resultat;
     }
 }

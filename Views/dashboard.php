@@ -16,7 +16,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
   <!-- Favicon -->
   <link href="/img/favicon.ico" rel="icon">
 
@@ -53,7 +53,7 @@
       <div class="row">
         <div class="col-md-3">
           <a href="/Article/Add" class="btn btn-dark btn-block">
-            <i class="fas fa-plus"></i> Add Post
+            <i class="fas fa-plus"></i> Add Article
           </a>
         </div>
         <div class="col-md-3">
@@ -62,7 +62,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a href="/User/Fetch" class="btn btn-dark btn-block" >
+          <a href="/User/Fetch" class="btn btn-dark btn-block">
             User
           </a>
         </div>
@@ -112,7 +112,7 @@
                     <td><?php echo $row["date_de_creation"]; ?></td>
                     <td><?php echo $row["date_de_modification"]; ?></td>
                     <td><?php echo "/img/" . $row["image"]; ?></td>
-                    <td><?php echo $row["code_categorie"]; ?></td>
+                    <td><?php echo $row["nom"]; ?></td>
                     <td><?php echo $row["pseudo_utilisateur"]; ?></td>
                     <td><a href="/dashboard/view/<?php echo $row["id"]; ?>" class="btn btn-dark">View</a></td>
                     <td><a href="/Article/details/<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a></td>
@@ -131,87 +131,8 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
 
 
-
-  <!-- MODALS -->
-  <!-- ADD CATEGORY MODAL -->
-  <div class="modal fade" id="addCategoryModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-
-          <form id="ADD_CATEGORY_MODAL">
-
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" class="form-control">
-            </div>
-          </form>
-
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ADD USER MODAL -->
-  <div class="modal fade" id="addUserModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-
-        <div class="modal-header bg-warning text-white">
-          <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-
-          <form>
-
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="passowrd">Password</label>
-              <input type="password" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="passowrd2">Confirm Password</label>
-              <input type="password" class="form-control">
-            </div>
-
-          </form>
-
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-dismiss="modal">Save changes</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
 
 
 
