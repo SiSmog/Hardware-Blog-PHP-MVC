@@ -46,7 +46,18 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h1 class="display-2 text-uppercase text-white mb-md-4">Find Out About The Best Parts</h1>
+                            <?php
+                            if(!isset($_SESSION["username"])){
+                            ?>
                             <a href="/Signup" class="btn btn-primary py-md-3 px-md-5 mt-2">SIGN UP</a>
+                            <?php
+                            }else{
+                            ?>
+                            <a href="/Explore" class="btn btn-primary py-md-3 px-md-5 mt-2">Explore</a>
+
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -55,7 +66,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h1 class="display-2 text-uppercase text-white mb-md-4">Feel Free To Contact Us</h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Contact Us</a>
+                            <a href="/Contact" class="btn btn-primary py-md-3 px-md-5 mt-2">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -79,120 +90,11 @@
 <?php require("components/categories.php")?>
 
 
-   
-
-
-    <!-- Team Start -->
-    <div class="container-fluid py-6 px-5">
-        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-            <h1 class="display-5 text-uppercase mb-4">We Are <span class="text-primary">Professional & Expert</span> Workers</h1>
-        </div>
-        <div class="row g-5">
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="row g-0">
-                    <div class="col-10" style="min-height: 300px;">
-                        <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100" src="/img/team-1.jpg" style="object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="h-100 d-flex flex-column align-items-center justify-content-between bg-light">
-                            <a class="btn" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-instagram"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="bg-light p-4">
-                            <h4 class="text-uppercase">Adam Phillips</h4>
-                            <span>CEO & Founder</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="row g-0">
-                    <div class="col-10" style="min-height: 300px;">
-                        <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100" src="/img/team-2.jpg" style="object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="h-100 d-flex flex-column align-items-center justify-content-between bg-light">
-                            <a class="btn" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-instagram"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="bg-light p-4">
-                            <h4 class="text-uppercase">Dylan Adams</h4>
-                            <span>Civil Engineer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="row g-0">
-                    <div class="col-10" style="min-height: 300px;">
-                        <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100" src="/img/team-3.jpg" style="object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="h-100 d-flex flex-column align-items-center justify-content-between bg-light">
-                            <a class="btn" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-instagram"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="bg-light p-4">
-                            <h4 class="text-uppercase">Jhon Doe</h4>
-                            <span>Interior Designer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="row g-0">
-                    <div class="col-10" style="min-height: 300px;">
-                        <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100" src="/img/team-4.jpg" style="object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="h-100 d-flex flex-column align-items-center justify-content-between bg-light">
-                            <a class="btn" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-instagram"></i></a>
-                            <a class="btn" href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="bg-light p-4">
-                            <h4 class="text-uppercase">Josh Dunn</h4>
-                            <span>Painter</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
-
 
     <!-- Testimonial Start -->
     <div class="container-fluid bg-light py-6 px-5">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-            <h1 class="display-5 text-uppercase mb-4">What Our <span class="text-primary">Happy Cleints</span> Say!!!</h1>
+            <h1 class="display-5 text-uppercase mb-4">What Our <span class="text-primary">Happy Users</span> Say!!!</h1>
         </div>
         <div class="row gx-0 align-items-center">
             <div class="col-xl-4 col-lg-5 d-none d-lg-block">
@@ -201,32 +103,22 @@
             <div class="col-xl-8 col-lg-7 col-md-12">
                 <div class="testimonial bg-light">
                     <div class="owl-carousel testimonial-carousel">
+                    <?php
+                    while ($row = mysqli_fetch_array($Comments)) {
+                    ?>
                         <div class="row gx-4 align-items-center">
                             <div class="col-xl-4 col-lg-5 col-md-5">
-                                <img class="img-fluid catimg w-100 h-100 bg-light p-lg-3 mb-4 mb-md-0" src="/img/testimonial-1.jpg" alt="">
+                                <img class="img-fluid catimg w-100 h-100 bg-light p-lg-3 mb-4 mb-md-0" src=<?php echo "/img/user/" . $row["image"];?> alt="">
                             </div>
                             <div class="col-xl-8 col-lg-7 col-md-7">
-                                <h4 class="text-uppercase mb-0">Client Name</h4>
-                                <p>Profession</p>
-                                <p class="fs-5 mb-0"><i class="fa fa-2x fa-quote-left text-primary me-2"></i> Dolores sed duo
-                                    clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem
-                                    lorem magna ut labore et tempor diam tempor erat. Erat dolor rebum sit
-                                    ipsum.</p>
+                                <h4 class="text-uppercase mb-0"><?php echo $row["pseudo_utilisateur"];?></h4>
+                                <p></p>
+                                <p class="fs-5 mb-0"><i class="fa fa-2x fa-quote-left text-primary me-2"></i> <?php echo $row["contenu"];?></p>
                             </div>
                         </div>
-                        <div class="row gx-4 align-items-center">
-                            <div class="col-xl-4 col-lg-5 col-md-5">
-                                <img class="img-fluid catimg w-100 h-100 bg-light p-lg-3 mb-4 mb-md-0" src="/img/testimonial-2.jpg" alt="">
-                            </div>
-                            <div class="col-xl-8 col-lg-7 col-md-7">
-                                <h4 class="text-uppercase mb-0">Client Name</h4>
-                                <p>Profession</p>
-                                <p class="fs-5 mb-0"><i class="fa fa-2x fa-quote-left text-primary me-2"></i> Dolores sed duo
-                                    clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem
-                                    lorem magna ut labore et tempor diam tempor erat. Erat dolor rebum sit
-                                    ipsum.</p>
-                            </div>
-                        </div>
+                    <?php
+                    }
+                    ?>
                     </div>
                 </div>
             </div>
@@ -241,60 +133,31 @@
             <h1 class="display-5 text-uppercase mb-4">Latest <span class="text-primary">Articles</span> From Our Blog Post</h1>
         </div>
         <div class="row g-5">
+        <?php
+        while ($row = mysqli_fetch_array($Articles)) {
+        ?>
             <div class="col-lg-4 col-md-6">
                 <div class="bg-light">
-                    <img class="img-fluid catimg" src="/img/blog-1.jpg" alt="">
+                    <img class="img-fluid cardimg" src=<?php echo "/img/article/".$row["image"]; ?> alt="">
                     <div class="p-4">
                         <div class="d-flex justify-content-between mb-4">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="/img/user.jpg" width="35" height="35" alt="">
-                                <span>John Doe</span>
+                                <img class="rounded-circle me-2" src=<?php echo "/img/user/".$row["userimage"]; ?> width="35" height="35" alt="">
+                                <span><?php echo $row["pseudo_utilisateur"]; ?></span>
                             </div>
                             <div class="d-flex align-items-center">
-                                <span class="ms-3"><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</span>
+                                <span class="ms-3"><i class="far fa-calendar-alt text-primary me-2"></i><?php echo $row["date_de_modification"]; ?></span>
                             </div>
                         </div>
-                        <h4 class="text-uppercase mb-3">Rebum diam clita lorem erat magna est erat</h4>
-                        <a class="text-uppercase fw-bold" href="">Read More <i class="bi bi-arrow-right"></i></a>
+                        <h4 class="text-uppercase mb-3"><?php echo $row["titre"]; ?></h4>
+                        <a class="text-uppercase fw-bold" href=<?php echo"/Article/Fetch/".$row["id"]?>>Read More <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="bg-light">
-                    <img class="img-fluid catimg" src="/img/blog-2.jpg" alt="">
-                    <div class="p-4">
-                        <div class="d-flex justify-content-between mb-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="/img/user.jpg" width="35" height="35" alt="">
-                                <span>John Doe</span>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <span class="ms-3"><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</span>
-                            </div>
-                        </div>
-                        <h4 class="text-uppercase mb-3">Rebum diam clita lorem erat magna est erat</h4>
-                        <a class="text-uppercase fw-bold" href="">Read More <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="bg-light">
-                    <img class="img-fluid catimg" src="/img/blog-3.jpg" alt="">
-                    <div class="p-4">
-                        <div class="d-flex justify-content-between mb-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="/img/user.jpg" width="35" height="35" alt="">
-                                <span>John Doe</span>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <span class="ms-3"><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</span>
-                            </div>
-                        </div>
-                        <h4 class="text-uppercase mb-3">Rebum diam clita lorem erat magna est erat</h4>
-                        <a class="text-uppercase fw-bold" href="">Read More <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
+        <?php
+        }
+        ?>
+            
         </div>
     </div>
     <!-- Blog End -->

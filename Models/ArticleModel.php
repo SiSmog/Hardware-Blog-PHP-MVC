@@ -13,17 +13,17 @@ class ArticleModel
     }
     public static function Filter($search)
     {
-        $sql = "select article.*,user.image as userimage ,pseudo_utilisateur 
+        $sql = "SELECT article.*,user.image as userimage ,pseudo_utilisateur 
         FROM article
         INNER JOIN user
         ON user.id =article.code_blogueur
         Where titre like ?
         UNION
-        select article.*,user.image as userimage ,pseudo_utilisateur 
+        SELECT article.*,user.image as userimage ,pseudo_utilisateur 
         FROM article
         INNER JOIN user
         ON user.id =article.code_blogueur
-        Where titre like ?;";
+        WHERE titre like ?;";
         $params = [$search . "%", "%" . $search . "%"];
         $resultat = execute($sql, $params);
         return $resultat;
@@ -37,8 +37,9 @@ class ArticleModel
     }
     public static function FetchByCategory($id)
     {
-        $sql = "select article.id,titre,date_de_modification,article.image,user.image as userimage ,pseudo_utilisateur from article,user 
-        where article.id=user.id and code_categorie=?";
+        $sql = "SELECT article.id,titre,date_de_modification,article.image,user.image AS userimage ,pseudo_utilisateur
+        FROM article,user 
+        WHERE article.code_blogueur=user.id AND code_categorie=?";
         $params = array($id);
         $resultat = execute($sql, $params);
         return $resultat;
@@ -90,4 +91,16 @@ class ArticleModel
         $resultat = execute($sql, $params);
         return $resultat;
     }
+    public static function FetchLast6()
+    {
+        $sql = "SELECT article.*,user.image as userimage ,pseudo_utilisateur 
+        FROM article
+        INNER JOIN user
+        ON user.id =article.code_blogueur
+        ORDER BY date_de_creation desc 
+        LIMIT 6";
+        $resultat = execute($sql);
+        return $resultat;
+    }
+    
 }
