@@ -97,6 +97,7 @@
                                     <th></th>
 
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
 
@@ -106,15 +107,13 @@
                                 ?>
                                     <tr>
                                         <td><?php echo $row["id"]; ?></td>
+                                        <td><img width="80" src=<?php echo "/img/category/" . $row["image"]; ?>></td>
                                         <td><?php echo $row["nom"]; ?></td>
-                                        <td><?php echo "/img/" . $row["image"]; ?></td>
                                         <td></td>
                                         <td></td>
-                                        <td></td>
-                                        <td><a href="/dashboard/view/<?php echo $row["id"]; ?>" class="btn btn-dark">View</a>
-                                            <a href="/Category/details/<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a>
-                                            <a href="/Category/DeleteCategory/<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
-                                        </td>
+                                        <td><a href="/dashboard/view/<?php echo $row["id"]; ?>" class="btn btn-dark">View</a></td>
+                                        <td><a href="/Category/details/<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a></td>
+                                        <td><a href="/Category/DeleteCategory/<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a></td>
 
                                         <td>
                                         </td>

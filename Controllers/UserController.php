@@ -16,7 +16,8 @@ class UserController
         $email = $_POST["email"];
         $username = $_POST["username"];
         $password = $_POST["password"];
-        $params = [$username, $email, $password];
+        $image = "default" . random_int(1, 12).".png";
+        $params = [$username, $email, $password,$image];
         $user->Add($params);
         $params = [$username, $password];
         $valid = $user->Check($params);
@@ -24,6 +25,7 @@ class UserController
             $_SESSION["username"] = $username;
             $_SESSION["userimage"] = $row["image"];
             $_SESSION["userid"] = $row["id"];
+            $_SESSION["uservalidation"] = $row["validation"];
         }
         header("location:/Home");
     }
@@ -33,6 +35,9 @@ class UserController
             header("location:/Home");
         } else {
             include("Views/signin.php");
+            if(isset($_SESSION["error"])){
+                $_SESSION["error"] = null;
+            }
         }
     }
     public static function Login()
@@ -47,8 +52,12 @@ class UserController
             $_SESSION["username"] = $username;
             $_SESSION["userimage"] = $row["image"];
             $_SESSION["userid"] = $row["id"];
+            $_SESSION["uservalidation"] = $row["validation"];
+            header("location:/Home");
+        }else{
+            $_SESSION["error"] = true;
+            header("location:/User/Signin");
         }
-        header("location:/Home");
     }
     public static function Logout()
     {

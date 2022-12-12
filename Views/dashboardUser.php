@@ -87,10 +87,10 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
+                                    <th>Image </th>
                                     <th>nom </th>
                                     <th>email</th>
 
-                                    <th>Image </th>
 
                                     <th></th>
                                     <th></th>
@@ -108,9 +108,9 @@
                                 ?>
                                     <tr>
                                         <td><?php echo $row["id"]; ?></td>
+                                        <td><img width="80" src=<?php echo "/img/user/" . $row["image"]; ?>></td>
                                         <td><?php echo $row["pseudo_utilisateur"]; ?></td>
                                         <td><?php echo $row["email"]; ?></td>
-                                        <td><?php echo "/img/" . $row["image"]; ?></td>
                                         <td></td>
                                         <td></td>
                                         <td>
