@@ -61,7 +61,6 @@
                         CATEGORY
                     </a>
                 </div>
-
                 <div class="col-md-2">
                     <a href="/User/Fetch/" class="btn btn-dark btn-block">
                         <i class="fas fa-plus"></i> User
@@ -98,48 +97,41 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>Image </th>
-                                    <th>nom </th>
-                                    <th>email</th>
-
-
+                                    <th>Article </th>
+                                    <th>User </th>
+                                    <th>contents</th>
+                                    <th> Date</th>
                                     <th></th>
                                     <th></th>
-                                    <th></th>
-                                    <th></th>
-
                                     <th></th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <?php $row2 = mysqli_fetch_all($Usertypes); ?>
                                 <?php
-                                while ($row = mysqli_fetch_array($Users)) {
+                                while ($row = mysqli_fetch_array($Comments)) {
                                 ?>
                                     <tr>
                                         <td><?php echo $row["id"]; ?></td>
-                                        <td><img width="80" src=<?php echo "/img/user/" . $row["image"]; ?>></td>
-                                        <td><?php echo $row["pseudo_utilisateur"]; ?></td>
-                                        <td><?php echo $row["email"]; ?></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td><?php echo $row["nomArticle"]; ?></td>
+                                        <td><?php echo $row["nomUser"]; ?></td>
+                                        <td><?php echo $row["contenu"]; ?></td>
+                                        <td><?php echo $row["date_ajout"]; ?></td>
+
                                         <td>
 
-                                            <form action="/User/UpdateUserType/<?= $row["id"]; ?>" method="POST">
+                                            <form action="/Comment/UpdateCommentType/<?= $row["id"]; ?>" method="POST">
                                                 <select class="form-control" name="validation_id">
-                                                    <option value="none" selected disabled hidden><?= $row["type"]; ?></option>
-
-                                                    <?php foreach ($row2 as $type) { ?>
-                                                        <option value="<?= $type[0] ?>"><?= $type[1] ?></option>
-                                                    <?php } ?>
+                                                    <option value="none" selected disabled hidden><?= $row["validation"]; ?></option>
+                                                    <option value="0">0</option>
+                                                    <option value="1">1</option>
                                                 </select>
                                                 <button type="submit" class="btn btn-xs btn-white btn-inline buttonClose"><i class="fa fa-check"></i></button>
                                             </form>
 
                                         </td>
                                         <td>
-                                            <a href="/User/DeleteUser/<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
+                                            <a href="/Comment/DeleteComment/<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
                                         </td>
 
                                         <td>

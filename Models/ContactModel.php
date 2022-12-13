@@ -10,7 +10,12 @@ class ContactModel
     }
     public static function Add($params)
     {
-        $sql="insert into contact(nom,email,sujet,message) values(?,?,?,?)";
+        $sql = "insert into contact(nom,email,sujet,message) values(?,?,?,?)";
+        execute($sql, $params);
+    }
+    public static function DeleteContact($params)
+    {
+        $sql = "DELETE FROM contact WHERE id=? ";
         execute($sql, $params);
     }
 }

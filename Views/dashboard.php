@@ -56,14 +56,24 @@
             <i class="fas fa-plus"></i> Add Article
           </a>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a href="/Category/Fetch" class="btn btn-dark btn-block">
             Category
           </a>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a href="/User/Fetch" class="btn btn-dark btn-block">
             User
+          </a>
+        </div>
+        <div class="col-md-2">
+          <a href="/Comment/Fetch/" class="btn btn-dark btn-block">
+            Comments
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a href="/Contacts/Fetch/" class="btn btn-dark btn-block">
+            Contacts
           </a>
         </div>
       </div>

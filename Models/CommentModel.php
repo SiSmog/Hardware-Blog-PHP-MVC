@@ -26,4 +26,27 @@ class CommentModel
         $resultat = execute($sql);
         return $resultat;
     }
+    public static function Fetch()
+    {
+        $sql = "SELECT commentaire.*,article.titre as nomArticle , user.pseudo_utilisateur as nomUser  
+        FROM commentaire
+        INNER JOIN article
+        ON commentaire.id_article =article.id
+        INNER JOIN user
+        ON commentaire.id_user=user.id";
+        $resultat = execute($sql);
+        return $resultat;
+    }
+    public static function UpdateCommentType($params)
+    {
+        $sql = "UPDATE commentaire 
+        SET validation= ?
+        WHERE id= ?";
+        execute($sql, $params);
+    }
+    public static function DeleteComment($params)
+    {
+        $sql = "DELETE FROM commentaire WHERE id=? ";
+        execute($sql, $params);
+    }
 }
