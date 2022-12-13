@@ -15,12 +15,18 @@ class CategoryModel
         $resultat = execute($sql, $params);
         return $resultat;
     }
-    public static function Update($id, $title, $contenu, $image)
+    public static function Update($params)
     {
-        $params = [$title, $contenu, $image, $id];
-        $sql = "UPDATE categorie 
+        if(count($params)==4){
+            $sql = "UPDATE categorie 
         SET nom= ?,description=?,image=?
         where id = ?";
+        }else{
+            $sql = "UPDATE categorie 
+        SET nom= ?,description=?
+        where id = ?";
+        }
+        
         execute($sql, $params);
     }
     public static function Add($params)

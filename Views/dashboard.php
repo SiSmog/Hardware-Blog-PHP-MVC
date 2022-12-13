@@ -124,7 +124,7 @@
                     <td><?php echo $row["date_de_modification"]; ?></td>
                     <td><?php echo $row["nom"]; ?></td>
                     <td><?php echo $row["pseudo_utilisateur"]; ?></td>
-                    <td><a href="/dashboard/view/<?php echo $row["id"]; ?>" class="btn btn-dark">View</a></td>
+                    <td><a href="/Article/Fetch/<?php echo $row["id"]; ?>" class="btn btn-dark">View</a></td>
                     <td><a href="/Article/details/<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a></td>
                     <td><a href="/Article/DeleteArticle/<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a></td>
 

@@ -46,9 +46,16 @@ class ArticleModel
     }
     public static function Update($params)
     {
-        $sql = "UPDATE article 
-        SET titre= ?,contenu=?,image=?,code_categorie=?
-        where id = ?";
+        if(count($params)==5){
+            $sql = "UPDATE article 
+            SET titre= ?,contenu=?,image=?,code_categorie=?,date_de_modification=CURRENT_TIMESTAMP
+            where id = ?";
+        }else{
+            $sql = "UPDATE article 
+            SET titre= ?,contenu=?,code_categorie=?,date_de_modification=CURRENT_TIMESTAMP
+            where id = ?";
+        }
+        
         execute($sql, $params);
     }
     public static function Add($params)

@@ -25,7 +25,15 @@
         <div class="grid">
       
           <form action="/User/Login" method="POST" class="form login">
-      
+            <?php
+            if(isset($_SESSION["error"])){
+            ?>
+          <div class="alert alert-danger" role="alert">
+            Wrong Credentials
+          </div>
+          <?php
+          }
+          ?>
             <div class="form__field">
               <label for="login__username"><svg class="icon">
                   <use xlink:href="#icon-user"></use>

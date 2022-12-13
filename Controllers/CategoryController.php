@@ -59,8 +59,13 @@ class CategoryController
         $category = new CategoryModel();
         $title = $_POST["title"];
         $contenu = $_POST["contenu"];
-        $image = $_POST["image"];
-        $category->Update($id, $title, $contenu, $image);
+        if($_POST["image"]!=null and $_POST["image"]!=""){
+            $image = $_POST["image"];
+            $params = [$title, $contenu, $image, $id];
+        }else{
+            $params = [$title, $contenu, $id];
+        }
+        $category->Update($params);
         $Category = $category->FetchById($id);
         header('Location:/Category');
     }

@@ -121,7 +121,7 @@
                                         <td><?php echo $row["nom"]; ?></td>
                                         <td></td>
                                         <td></td>
-                                        <td><a href="/dashboard/view/<?php echo $row["id"]; ?>" class="btn btn-dark">View</a></td>
+                                        <td><a href="/Explore/FetchByCategory/<?php echo $row["id"]; ?>" class="btn btn-dark">View</a></td>
                                         <td><a href="/Category/details/<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a></td>
                                         <td><a href="/Category/DeleteCategory/<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a></td>
 

@@ -68,11 +68,11 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control" value="<?= $row["pseudo_utilisateur"]; ?>">
+                                    <input type="email" name="email" class="form-control" value="<?=$row["email"] ; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input type="text" name="name" class="form-control" value="<?= $row["email"]; ?>">
+                                    <input type="text" name="name" class="form-control" value="<?=$row["pseudo_utilisateur"] ; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="passowrd">Password</label>
@@ -93,7 +93,6 @@
                                 <input type="file" name="image" class="custom-file-input" id="image">
                                 <label for="image" class="custom-file-label">Choose File</label>
                             </div>
-                            <button type="submit" form="imageEdit" class="btn btn-primary btn-block">Edit Image</button>
                         </div>
                     </div>
             </div>

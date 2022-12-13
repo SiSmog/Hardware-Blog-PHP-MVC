@@ -64,7 +64,7 @@ class UserController
         $_SESSION["username"] = null;
         $_SESSION["userimage"] = null;
         $_SESSION["userid"] = null;
-        $_SESSION["type"] = null;
+        $_SESSION["uservalidation"] = null;
 
         header("location:/Home");
     }

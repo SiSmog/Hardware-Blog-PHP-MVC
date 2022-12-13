@@ -25,9 +25,13 @@ class ArticleController
         $article = new ArticleModel();
         $title = $_POST["title"];
         $contenu = $_POST["contenu"];
-        $image = $_POST["image"];
         $category_id = $_POST["category_id"];
-        $params = [$title, $contenu, $image, $category_id, $id];
+        if($_POST["image"]!=null and $_POST["image"]!=""){
+            $image = $_POST["image"];
+            $params = [$title, $contenu, $image, $category_id, $id];
+        }else{
+            $params = [$title, $contenu, $category_id, $id];
+        }
         $article->Update($params);
         $Article = $article->FetchById($id);
         header('Location:/Dashboard');

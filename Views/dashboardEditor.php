@@ -77,10 +77,10 @@
               <thead class="thead-dark">
                 <tr>
                   <th>#</th>
+                  <th>Image </th>
                   <th>Title </th>
                   <th>Creation Date </th>
                   <th>Modification Date</th>
-                  <th>Image </th>
                   <th>Category </th>
                   <th>Blogeur Name </th>
 
@@ -98,13 +98,13 @@
                 ?>
                   <tr>
                     <td><?php echo $row["id"]; ?></td>
+                    <td><img width="80" src=<?php echo "/img/article/" . $row["image"]; ?>></td>
                     <td><?php echo $row["titre"]; ?></td>
                     <td><?php echo $row["date_de_creation"]; ?></td>
                     <td><?php echo $row["date_de_modification"]; ?></td>
-                    <td><?php echo "/img/" . $row["image"]; ?></td>
                     <td><?php echo $row["nom"]; ?></td>
                     <td><?php echo $row["pseudo_utilisateur"]; ?></td>
-                    <td><a href="/dashboard/view/<?php echo $row["id"]; ?>" class="btn btn-dark">View</a></td>
+                    <td><a href="/Article/Fetch/<?php echo $row["id"]; ?>" class="btn btn-dark">View</a></td>
                     <td><a href="/Article/details/<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a></td>
                     <td><a href="/Article/DeleteArticle/<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a></td>
 

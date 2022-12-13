@@ -22,16 +22,26 @@ class ProfileController
         $name = $_POST["name"];
         $password = $_POST["password"];
         $password2 = $_POST["password2"];
+        if ($_POST["image"] != null and $_POST["image"] != "") {
+            $image = $_POST["image"];
+            $params = [$name, $email, "",$image, $id];
+            $_SESSION["userimage"] = $image;
+        }else{
+            $params = [$name, $email, "", $id];
+        }
         $originPassword = $user->GetPassword($params2);
-        if ($password == $password2) {
-            $params = [$name, $email, $password, $id];
+        if ($password == $password2 and !($password == NULL or $password == "")) {
+            $params[2] = $password;
             $user->UpdateUserProfile($params);
+            $_SESSION["username"] = $name;
             header("location:/Home");
-        } else if ($password != $params2) {
+        } else if ($password != $password2) {
             $User = $user->FetchById($params2);
             include("Views/profile.php");
-        } else if (($password == NULL) or ($params2 == NULL)) {
-            $params = [$name, $email, $originPassword, $id];
+        } else if (($password == NULL or $password == "") or ($password2 == NULL or $password2 == "")) {
+            $params[2] = $originPassword;
+            $user->UpdateUserProfile($params);
+            $_SESSION["username"] = $name;
             header("location:/Home");
         }
     }

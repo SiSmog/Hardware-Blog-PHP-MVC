@@ -61,17 +61,17 @@ class UserModel
     }
     public static function UpdateUserProfile($params)
     {
-        $sql = "UPDATE user 
+        if(count($params)==5){
+            $sql = "UPDATE user 
+        SET pseudo_utilisateur= ?, email=?,password=?,image=?
+        WHERE id =?";
+        }else{
+            $sql = "UPDATE user 
         SET pseudo_utilisateur= ?, email=?,password=?
         WHERE id =?";
+        }
+        
 
-        execute($sql, $params);
-    }
-    public static function UpdateUserImage($params)
-    {
-        $sql = "UPDATE user 
-        SET iamge= ?
-        WHERE id =?";
         execute($sql, $params);
     }
     public static function GetPassword($params)
@@ -80,6 +80,7 @@ class UserModel
         from user 
         WHERE id =?";
         $resultat = execute($sql, $params);
+        $resultat = mysqli_fetch_array($resultat)["password"];
         return $resultat;
     }
 }

@@ -43,16 +43,7 @@ $article=mysqli_fetch_array($Article);
 
 
 
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header">
-        <h1 class="display-3 text-uppercase text-white mb-3">Blog Detail</h1>
-        <div class="d-inline-flex text-white">
-            <h6 class="text-uppercase m-0"><a href="">Home</a></h6>
-            <h6 class="text-white m-0 px-3">/</h6>
-            <h6 class="text-uppercase text-white m-0">Blog Detail</h6>
-        </div>
-    </div>
-    <!-- Page Header Start -->
+
 
 
     <!-- Blog Start -->
@@ -74,7 +65,7 @@ $article=mysqli_fetch_array($Article);
                     <?php
                     while($row = mysqli_fetch_array($CommentsByArticle)){?> 
                             <div class="d-flex mb-4">
-                                <img src=<?php echo "/img/". $row["image"]?> class="img-fluid" style="width: 45px; height: 45px;">
+                                <img src=<?php echo "/img/user/". $row["image"]?> class="img-fluid" style="width: 45px; height: 45px;">
                                 <div class="ps-3">
                                     <h6><a href=""><?php echo $row["pseudo_utilisateur"]?></a> <small><i><?php echo $row["date_ajout"]?></i></small></h6>
                                     <p><?php echo $row["contenu"]?></p>
@@ -90,7 +81,10 @@ $article=mysqli_fetch_array($Article);
                 <!-- Comment Form Start -->
                 <div class="bg-light p-5">
                     <h3 class="text-uppercase mb-4">Leave a comment</h3>
-                    <form method="POST" action=<?php echo "/Comment/Add/". $article["id"]?>>
+                    <?php
+                    if (isset($_SESSION["username"])) {
+                    ?>
+                    <form method="POST" action=<?php echo "/Comment/Add/" . $article["id"] ?>>
                         <div class="row g-3">
                             <div class="col-12">
                                 <textarea class="form-control bg-white border-0" rows="5" placeholder="Comment" name="contenu"></textarea>
@@ -100,6 +94,22 @@ $article=mysqli_fetch_array($Article);
                             </div>
                         </div>
                     </form>
+                    <?php
+                    }else{
+                    ?>
+                    <form method="POST" action="/User/Signin">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <textarea class="form-control bg-white border-0" rows="5" placeholder="Comment" name="contenu"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Leave Your Comment</button>
+                            </div>
+                        </div>
+                    </form>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <!-- Comment Form End -->
             </div>

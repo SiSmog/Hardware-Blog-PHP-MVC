@@ -49,7 +49,7 @@
                             <?php
                             if(!isset($_SESSION["username"])){
                             ?>
-                            <a href="/Signup" class="btn btn-primary py-md-3 px-md-5 mt-2">SIGN UP</a>
+                            <a href="/User/Signup" class="btn btn-primary py-md-3 px-md-5 mt-2">SIGN UP</a>
                             <?php
                             }else{
                             ?>
